@@ -1,0 +1,33 @@
+
+
+.navbar-brand {
+  font-size: 1.9rem;
+  margin-left: 20px;
+  font-family: "Rubik", sans-serif;
+   color: white;
+   margin: 5px;
+}
+
+.navbar-nav {
+  margin-left: 40%;
+}
+.nav-item {
+  margin-left: 50px;
+}
+a.btn.active{
+  background-color: rgb(236, 199, 118);
+
+}
+.image {
+  width: 40px;
+  margin-bottom: 6px;
+}
+
+.transparent-only { background: rgba(0,0,0,0.0) !important;}
+.btn{
+  background-color: rgba(226, 190, 137, 0.3);
+  border:none;
+}
+.btn:hover{
+  background-color: rgb(236, 199, 118);
+}

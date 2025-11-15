@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary transparent-only">
+  <div class="container-fluid   ">
+    <a class="navbar-brand" href="#"><img class="image" src="icons9.png" alt=""> Librairie</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" >
+        <li class="nav-item">
+          <a class=" btn btn-primary me-4"  aria-current="page" routerLink="acceuille"   routerLinkActive="active" >acceuille</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-primary" routerLink="books" routerLinkActive="active">catalogue</a>
+        </li>
+       <li class="nav-item">
+            <a  type="button" class="btn btn-primary ms-3"  routerLink="detail/:id" routerLinkActive="active" > Details</a>
+        </li>
+        <li class="nav-item" >
+            <a   class="btn btn-primary ms-3" routerLink="panier" routerLinkActive="active">panier ({{listeLivre}})</a>
+        </li>
+        
+        <!--
+        <li class="nav-item" *ngFor="let item of menu; let i = index">
+          <a
+            class="btn btn-primary me-3"
+            [routerLink]="item.link"
+            [ngClass]="{ 'active-btn': selectedIndex === i }"
+            (click)="setActive(i)"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+        -->
+      </ul>
+    </div>
+  </div>
+</nav>

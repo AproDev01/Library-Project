@@ -1,0 +1,83 @@
+<div class="container py-4">
+  <!-- Panier vide -->
+  <div *ngIf="livre.length === 0" class="alert alert-info text-center fs-5">
+    Votre panier est vide.
+  </div>
+
+  <!-- Tableau -->
+  <table
+    *ngIf="livre.length > 0"
+    class="table table-hover align-middle shadow-sm border"
+  >
+    <thead class="table-primary text-center">
+      <tr>
+        <th>Book</th>
+        <th>Auteur</th>
+        <th>Prix</th>
+        <th>Quantité</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let l of livre">
+        <!-- Nom du livre -->
+        <td>
+          <div class="d-flex align-items-center gap-2">
+            <img
+              src="icons8.png"
+              width="20"
+              class="cursor-pointer"
+              (click)="remove(l)"
+            />
+            <span class="fw-semibold">{{ l.title }}</span>
+          </div>
+        </td>
+
+        <!-- Auteur -->
+        <td>{{ l.auteur }}</td>
+
+        <!-- Prix -->
+        <td>
+          <span [ngClass]="{ 'text-danger fw-bold': l.prix > 50 }">
+            {{ l.prix }} €
+          </span>
+        </td>
+
+        <!-- Quantité -->
+        <td class="text-center">
+          <!-- Indisponible -->
+          <div *ngIf="reste(l) === 0" class="text-danger fw-semibold">
+            Indisponible
+          </div>
+
+          <!-- Champ quantité -->
+          <div *ngIf="reste(l) > 0">
+            <input
+              type="number"
+              class="form-control"
+              style="width: 70px"
+              [(ngModel)]="l.quantite"
+              (ngModelChange)="onQuantiteChange(l, $event)"
+              [min]="1"
+              [max]="l.quantiteGlobal"
+            />
+
+            <small class="text-muted d-block mt-1">
+              Reste : {{ reste(l) }}
+            </small>
+          </div>
+        </td>
+
+        <!-- Total -->
+<td class="fw-bold fs-5">{{ ligneTotal(l) }} €</td>
+      </tr>
+
+      <!-- Ligne total général -->
+      <tr class="table-light">
+        <td colspan="4" class="text-end fw-bold fs-5">Total :</td>
+        <td class="fw-bold fs-5">{{ totalGeneral }} €</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
